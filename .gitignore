@@ -1,0 +1,6 @@
+bot.db
+config.ini
+user_providers.txt
+working_providers.txt
+venv/
+__pycache__/
