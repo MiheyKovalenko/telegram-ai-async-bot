@@ -2,7 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from config import BOT_TOKEN
 from handlers import router
-from database import init_db
+from database import init_db, init_history_table
 from scan_providers import scan_providers
 
 async def periodic_update():
@@ -16,6 +16,7 @@ async def main():
     dp.include_router(router)
 
     await init_db()
+    init_history_table() 
     asyncio.create_task(periodic_update())
     await dp.start_polling(bot)
 
